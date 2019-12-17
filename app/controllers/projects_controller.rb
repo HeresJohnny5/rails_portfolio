@@ -15,6 +15,11 @@ class ProjectsController < ApplicationController
     @project_item = Project.new
   end
 
+  # GET /projects/1/edit
+  def edit
+    @project_item = Project.find(params[:id])
+  end
+
   # POST /projects
   # POST /projects.json
   def create
@@ -25,6 +30,20 @@ class ProjectsController < ApplicationController
         format.html { redirect_to projects_path, notice: 'Project was successfully created.' }
       else
         format.html { render :new }
+      end
+    end
+  end
+
+  # PATCH/PUT /projects/1
+  # PATCH/PUT /projects/1.json
+  def update
+    @project_item = Project.find(params[:id])
+
+    respond_to do |format|
+      if @project_item.update(params.require(:project).permit(:title, :subtitle, :body))
+        format.html { redirect_to projects_path, notice: 'Project was successfully updated.' }
+      else
+        format.html { render :edit }
       end
     end
   end
