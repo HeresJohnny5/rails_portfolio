@@ -10,5 +10,10 @@
   <p><%= project_item.subtitle %></p>  
   <p><%= project_item.body %></p>
   <%= image_tag project_item.thumb_image unless project_item.thumb_image.nil? %>
-  <%= link_to "Edit Project #{project_item.id}", edit_project_path(project_item.id) %>
+  <p>
+    <%= link_to "Edit Project #{project_item.id}", edit_project_path(project_item.id) %>
+  </p>
+  <p>
+    <%= link_to "Delete Project #{project_item.id}", project_path(project_item.id), method: :delete, data: { confirm: 'Are you sure?' } %>
+  </p>
 <% end %>
