@@ -3,7 +3,10 @@
 <%= link_to "Create New Project", new_project_path %>
 
 <% @projects_items.each do |project_item| %>
-  <p><%= project_item.title %></p>
+  <p>
+    <%= link_to "Show #{project_item.title}", project_path(project_item.id) %>
+  <p>
+  </p>
   <p><%= project_item.subtitle %></p>  
   <p><%= project_item.body %></p>
   <%= image_tag project_item.thumb_image unless project_item.thumb_image.nil? %>

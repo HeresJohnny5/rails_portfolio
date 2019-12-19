@@ -9,6 +9,12 @@ class ProjectsController < ApplicationController
     # Any instance variables w/in the controller are accessible inside the View
   end
 
+  # GET /projects/1
+  # GET /projects/1.json
+  def show
+    @project_item = Project.find(params[:id])
+  end
+
   # GET /projects/new
   def new
     # the new controller action renders the item, but it does not create a new one nor does it communicate w/ the database
