@@ -1,8 +1,11 @@
-<h1>Testing</h1>
-<br />
+<h1>Portfolio Items</h1>
+
+<%= link_to "Create New Project", new_project_path %>
+
 <% @projects_items.each do |project_item| %>
   <p><%= project_item.title %></p>
   <p><%= project_item.subtitle %></p>  
   <p><%= project_item.body %></p>
   <%= image_tag project_item.thumb_image unless project_item.thumb_image.nil? %>
+  <%= link_to "Edit Project #{project_item.id}", edit_project_path(project_item.id) %>
 <% end %>
