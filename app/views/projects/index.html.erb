@@ -5,7 +5,6 @@
 <% @projects_items.each do |project_item| %>
   <p>
     <%= link_to "Show #{project_item.title}", project_show_path(project_item.id) %>
-  <p>
   </p>
   <p><%= project_item.subtitle %></p>  
   <p><%= project_item.body %></p>
